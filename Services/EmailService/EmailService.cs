@@ -15,7 +15,7 @@ public class EmailService : IEmailService
         _config = config;
     }
 
-    public void SendEmail(EmailDTO request)
+    public void SendEmail(EmailDto request)
     {
         var email = new MimeMessage();
         email.From.Add(MailboxAddress.Parse(_config.GetSection("EmailCredentials:Username").Value));

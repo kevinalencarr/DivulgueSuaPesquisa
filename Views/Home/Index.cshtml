@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Divulgue sua pesquisa na Agência UFC";
+}
+
+<div class="container">
+    <div class="text-center mt-4">
+        <p>IMAGEM AQUI</p>
+    </div>
+
+    <form id="emailForm" method="post" asp-controller="Email" asp-action="SendEmail">
+        <div class="mb-3">
+            <label for="subject" class="form-label">Subject:</label>
+            <input type="text" class="form-control" id="subject" name="subject">
+        </div>
+        <div class="mb-3">
+            <label for="body" class="form-label">Body:</label>
+            <textarea class="form-control" id="body" name="body" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    
+    <script>
+        $(document).ready(function () {
+            $("#emailForm").submit(function (event) {
+                event.preventDefault();
+        
+                var subject = $("#subject").val();
+                var body = $("#body").val();
+        
+                var requestData = {
+                    subject: subject,
+                    body: body
+                };
+                
+                $.ajax({
+                    type: "POST",
+                    url: "/Email/SendEmail",
+                    contentType: "application/json",
+                    data: JSON.stringify(requestData),
+                    success: function () {
+                        alert("E-mail sent successfully!");
+                    },
+                    error: function () {
+                        alert("Error sending e-mail.");
+                    }
+                });
+            });
+        });
+
+    </script>
+</div>

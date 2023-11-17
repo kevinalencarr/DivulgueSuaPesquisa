@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DivulgueSuaPesquisa.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
-public class EmailController : ControllerBase
+[Route("[controller]")]
+public class EmailController : Controller
 {
     private readonly IEmailService _emailService;
 
@@ -16,7 +15,8 @@ public class EmailController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult SendEmail(EmailDTO request)
+    [Route("SendEmail")]
+    public IActionResult SendEmail([FromBody] EmailDto request)
     {
         _emailService.SendEmail(request);
         return Ok();
