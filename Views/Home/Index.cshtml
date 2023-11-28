@@ -2,7 +2,7 @@
     ViewData["Title"] = "Divulgue sua pesquisa na Agência UFC";
 }
 
-<header class="mb-4 text-center">
+<header class="mb-4 text-center" xmlns="http://www.w3.org/1999/html">
     <div class="mt-4">
         <img src="assets/agenciaufc_header_logo.png" alt="Logo da Agência UFC"/>
     </div>
@@ -13,7 +13,7 @@
         <!-- Dropdown 1 -->
         <div class="row justify-content-center mb-2">
             <div class="col-md-6 text-center mb-2">
-                <div class="dropdown">
+                <div class="dropdown custom-dropdown">
                     <button class="btn btn-secondary dropdown-toggle small-font" type="button"
                             id="agenciaDropdown" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -22,7 +22,13 @@
                     <ul class="dropdown-menu" aria-labelledby="agenciaDropdown">
                         <li>
                             <p class="dropdown-item-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+                                A Agência UFC é um canal focado na divulgação de pesquisas científicas desenvolvidas na Universidade Federal do Ceará. <br>
+                                <br>
+                                Nosso objetivo é tornar o conhecimento científico disponível a toda a sociedade, auxiliando a UFC a cumprir seu papel como entidade de caráter público. <br>
+                                <br>
+                                É por isso que todas as nossas matérias são ficam disponíveis à utilização pela imprensa (com os devidos créditos), para que as pesquisas sejam amplamente divulgadas.<br> 
+                                <br>
+                                O gerenciamento da Agência UFC está a cargo da Secretaria de Comunicação e Marketing da UFC.
                             </p>
                         </li>
                     </ul>
@@ -33,7 +39,7 @@
         <!-- Dropdown 2 -->
         <div class="row justify-content-center mb-2">
             <div class="col-md-6 text-center mb-2">
-                <div class="dropdown">
+                <div class="dropdown custom-dropdown">
                     <button class="btn btn-secondary dropdown-toggle small-font" type="button"
                             id="critériosDropdown" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -53,7 +59,7 @@
         <!-- Dropdown 3 -->
         <div class="row justify-content-center mt-2 mb-4">
             <div class="col-md-12 text-center">
-                <div class="dropdown">
+                <div class="dropdown custom-dropdown">
                     <button class="btn btn-secondary dropdown-toggle small-font" type="button"
                             id="processoDropdown" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -62,7 +68,15 @@
                     <ul class="dropdown-menu" aria-labelledby="processoDropdown">
                         <li>
                             <p class="dropdown-item-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+                                Nossa equipe de jornalistas irá avaliar a sugestão de pauta e entrar em contato com a pessoa responsável pela pesquisa para iniciar o processo de produção.<br>
+                                <br>
+                                Existem alguns passos até a publicação da matéria:<br>
+                                - Entrevista com pesquisadores.<br>
+                                - Redação do texto;<br>
+                                - Revisão técnica por parte do(a) pesquisador(a);<br>
+                                - Revisão final;<br>
+                                - Publicação no site da Agência UFC, no portal da UFC e nas mídias sociais;<br>
+                                - Envio de matéria para a imprensa.
                             </p>
                         </li>
                     </ul>
@@ -115,7 +129,7 @@
             <div class="mb-3">
                 <label for="researchSummary" class="form-label">Resumo da pesquisa:</label>
                 <textarea class="form-control" id="researchSummary" name="researchSummary" rows="4" required
-                          placeholder="Inclua informações importantes sobre a pesquisa, como objetivos e resultados."></textarea>
+                          placeholder="Não é necessário incluir tudo (teremos a entrevista para isso), mas inclua as informações importantes sobre a pesquisa, como objetivos e resultados."></textarea>
             </div>
             <div class="row">
                 <div class="mb-3 col-md-12 form-check">
@@ -134,8 +148,14 @@
                     </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" id="submitButton" disabled>Enviar</button>
+            <div class="row justify-content-center">
+                <div class="mb-3 col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary" id="submitButton" disabled>Enviar</button>
+                </div>
+            </div>
         </form>
+        
+        
 
         <script>
             document.getElementById('contactEmail').addEventListener('input', function() {
@@ -184,14 +204,44 @@
                             contactEmail: contactEmail
                         }),
                         success: function () {
-                            alert("E-mail sent successfully!");
+                          $('#successModal').modal('show');
                         },
                         error: function () {
-                            alert("Error sending e-mail.");
+                          $('#errorModal').modal('show');
                         }
                     });
                 });
             });
         </script>
+    </div>
+    
+    <!-- Modals -->
+    <div class="modal" tabindex="-1" role="dialog" id="successModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">E-mail enviado com sucesso!</h5>
+                </div>
+                <div class="modal-body">
+                    Recebemos o seu e-mail e entraremos em contato em até 3 dias.<br/>
+                    <br/>
+                    Caso não tenha resposta nesse tempo, você pode entrar em contato conosco: coordenacao.ufcinforma@ufc.br ou (85) 3366 7331.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="errorModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Falha no envio do e-mail!</h5>
+                </div>
+                <div class="modal-body">
+                    Houve uma falha no envio do e-mail. Por favor, tente novamente.<br/>
+                    <br/>
+                    Caso continue a ter problemas, entre em contato conosco: coordenacao.ufcinforma@ufc.br ou (85) 3366 7331.
+                </div>
+            </div>
+        </div>
     </div>
 </body>

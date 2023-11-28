@@ -14,9 +14,30 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
+    font-family: "JetBrains Mono", sans-serif;
 }
 
 .small-font {
     font-size: 12px;
+}
+
+.custom-dropdown .btn-secondary {
+    background-color: rgba(0, 174, 239, 0.85);
+    border-color: rgba(0, 174, 239, 0.85);
+}
+
+.custom-footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(0, 174, 239, 0.85);
+}
+
+#submitButton {
+    background-color: rgba(248, 152, 29, 1);
+    border-color: rgba(248, 152, 29, 1);
+}
+
+#submitButton:hover {
+    background-color: rgba(240, 138, 25, 1);
+    border-color: rgba(240, 138, 25, 1);
 }

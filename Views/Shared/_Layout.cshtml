@@ -10,6 +10,7 @@
     
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
+
 <body>
     <div class="container">
         <main role="main" class="pb-3">
@@ -17,11 +18,19 @@
         </main>
     </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2023 - DivulgueSuaPesquisa - <a asp-area="" asp-controller="Home" asp-action="Index">Index</a>
-    </div>
-</footer>
+    <footer class="d-flex flex-column align-items-center py-4 my-4 border-top custom-footer">
+        <a href="http://www.ufc.br" class="mb-3 link-dark text-decoration-none">
+            <img src="assets/ufc_footer_logo.png" alt="UFC Logo" class="img-fluid">
+        </a>
+    
+        <ul class="nav list-unstyled">
+            <li class="nav-item"><a href="https://agencia.ufc.br/quem-somos/" class="nav-link px-2 text-white">Quem somos</a></li>
+            <li class="nav-item"><a href="https://agencia.ufc.br/use-nossas-materias/" class="nav-link px-2 text-white">Use nossas matérias</a></li>
+        </ul>
+    
+        <p class="mb-0 text-white">&copy; 2024 Universidade Federal do Ceará</p>
+    </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
