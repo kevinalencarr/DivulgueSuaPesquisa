@@ -1,0 +1,22 @@
+@model EmailDto;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Subject</title>
+</head>
+<body>
+    <h2>@Model.Subject</h2>
+
+    <p><strong>Nome:</strong> @Model.Name</p>
+    <p><strong>Laboratório:</strong> @Model.Lab</p>
+    <p><strong>Departamento ou Programa de Pós-Graduação:</strong> @Model.Dept</p>
+    <p><strong>Título da pesquisa:</strong> @Model.ResearchTitle</p>
+    <p><strong>Resumo da pesquisa:</strong> @Model.ResearchSummary</p>
+    <p><strong>Link de publicação:</strong> @Model.PublicationLink</p>
+    <p><strong>Telefone:</strong> @Model.ContactPhone</p>
+    <p><strong>E-mail:</strong> @Model.ContactEmail</p>
+</body>
+</html>

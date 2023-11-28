@@ -2,50 +2,196 @@
     ViewData["Title"] = "Divulgue sua pesquisa na Agência UFC";
 }
 
-<div class="container">
-    <div class="text-center mt-4">
-        <p>IMAGEM AQUI</p>
+<header class="mb-4 text-center">
+    <div class="mt-4">
+        <img src="assets/agenciaufc_header_logo.png" alt="Logo da Agência UFC"/>
     </div>
+</header>
 
-    <form id="emailForm" method="post" asp-controller="Email" asp-action="SendEmail">
-        <div class="mb-3">
-            <label for="subject" class="form-label">Subject:</label>
-            <input type="text" class="form-control" id="subject" name="subject">
+<body>
+    <div class="container">
+        <!-- Dropdown 1 -->
+        <div class="row justify-content-center mb-2">
+            <div class="col-md-6 text-center mb-2">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle small-font" type="button"
+                            id="agenciaDropdown" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        O que é a Agência UFC?
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="agenciaDropdown">
+                        <li>
+                            <p class="dropdown-item-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="body" class="form-label">Body:</label>
-            <textarea class="form-control" id="body" name="body" rows="4"></textarea>
+
+        <!-- Dropdown 2 -->
+        <div class="row justify-content-center mb-2">
+            <div class="col-md-6 text-center mb-2">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle small-font" type="button"
+                            id="critériosDropdown" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Quais os critérios de divulgação?
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="criteriosDropdown">
+                        <li>
+                            <p class="dropdown-item-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
-    
-    <script>
-        $(document).ready(function () {
-            $("#emailForm").submit(function (event) {
-                event.preventDefault();
+
+        <!-- Dropdown 3 -->
+        <div class="row justify-content-center mt-2 mb-4">
+            <div class="col-md-12 text-center">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle small-font" type="button"
+                            id="processoDropdown" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Como funciona o processo de publicação?
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="processoDropdown">
+                        <li>
+                            <p class="dropdown-item-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <form id="emailForm" method="post" asp-controller="Email" asp-action="SendEmail">
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="name" class="form-label">Responsável pela pesquisa:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="lab" class="form-label">Laboratório:</label>
+                    <input type="text" class="form-control" id="lab" name="lab">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="dept" class="form-label">Departamento ou Programa de Pós-Graduação:</label>
+                    <input type="text" class="form-control" id="dept" name="dept" required>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="publicationLink" class="form-label">Link de publicação:</label>
+                    <input type="text" class="form-control" id="publicationLink" name="publicationLink">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="contactPhone" class="form-label">Telefone de contato:</label>
+                    <input type="tel" class="form-control" id="contactPhone" name="contactPhone" required>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="contactEmail" class="form-label">E-mail de contato:</label>
+                    <input type="email" class="form-control"
+                           id="contactEmail" name="contactEmail"
+                           pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,}$"
+                           title="Informe um endereço de e-mail válido. Exemplo: usuario@dominio.com"
+                           required>
+                    <div class="invalid-feedback">
+                        Por favor, insira um endereço de e-mail válido.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="researchTitle" class="form-label">Título da pesquisa:</label>
+                <input type="text" class="form-control" id="researchTitle" name="researchTitle" required>
+            </div>
+            <div class="mb-3">
+                <label for="researchSummary" class="form-label">Resumo da pesquisa:</label>
+                <textarea class="form-control" id="researchSummary" name="researchSummary" rows="4" required
+                          placeholder="Inclua informações importantes sobre a pesquisa, como objetivos e resultados."></textarea>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-12 form-check">
+                    <input type="checkbox" class="form-check-input" id="checkbox1" required>
+                    <label class="form-check-label" for="checkbox1">
+                        Concordo que minha pesquisa seja divulgada nos canais
+                        da UFC Informa (Agência UFC, portal e mídias sociais).
+                    </label>
+                </div>
+                <div class="mb-3 col-md-12 form-check">
+                    <input type="checkbox" class="form-check-input" id="checkbox2" required>
+                    <label class="form-check-label" for="checkbox2">
+                        Estou ciente de que pode haver interesse da imprensa na
+                        pesquisa e concordo em fornecer meu contato a eventuais
+                        jornalistas interessados na criação de matérias de circulação nacional.
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitButton" disabled>Enviar</button>
+        </form>
+
+        <script>
+            document.getElementById('contactEmail').addEventListener('input', function() {
+                let input = this;        
+                if (input.checkValidity()) {
+                    input.classList.remove('is-invalid');
+                } else {
+                    input.classList.add('is-invalid');
+                }
+            });
         
-                var subject = $("#subject").val();
-                var body = $("#body").val();
-        
-                var requestData = {
-                    subject: subject,
-                    body: body
-                };
-                
-                $.ajax({
-                    type: "POST",
-                    url: "/Email/SendEmail",
-                    contentType: "application/json",
-                    data: JSON.stringify(requestData),
-                    success: function () {
-                        alert("E-mail sent successfully!");
-                    },
-                    error: function () {
-                        alert("Error sending e-mail.");
+            $(document).ready(function () {
+                $('#checkbox1, #checkbox2').change(function () {
+                    if ($('#checkbox1').prop('checked') && $('#checkbox2').prop('checked')) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
                     }
                 });
-            });
-        });
 
-    </script>
-</div>
+                $("#emailForm").submit(function (event) {
+                    event.preventDefault();
+            
+                    let name = $("#name").val();
+                    let lab = $("#lab").val();
+                    let dept = $("#dept").val();
+                    let researchTitle = $("#researchTitle").val();
+                    let researchSummary = $("#researchSummary").val();
+                    let publicationLink = $("#publicationLink").val();
+                    let contactPhone = $("#contactPhone").val();
+                    let contactEmail = $("#contactEmail").val();
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "/Email/SendEmail",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            subject: researchTitle,
+                            name: name,
+                            lab: lab,
+                            dept: dept,
+                            researchTitle: researchTitle,
+                            researchSummary: researchSummary,
+                            publicationLink: publicationLink,
+                            contactPhone: contactPhone,
+                            contactEmail: contactEmail
+                        }),
+                        success: function () {
+                            alert("E-mail sent successfully!");
+                        },
+                        error: function () {
+                            alert("Error sending e-mail.");
+                        }
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>

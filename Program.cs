@@ -1,10 +1,13 @@
 using DivulgueSuaPesquisa.Services.EmailService;
+using DivulgueSuaPesquisa.Services.ViewRenderService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IViewRenderService, ViewRenderService>();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
